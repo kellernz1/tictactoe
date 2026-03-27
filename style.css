@@ -1,0 +1,85 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+h1 { margin-bottom: 20px; font-size: 2rem; }
+
+#menu p { font-size: 1.2rem; margin-bottom: 15px; }
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff4d4d;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+button:hover { background-color: #ff1a1a; }
+
+.hidden { display: none; }
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.cell {
+  background-color: rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  aspect-ratio: 1 / 1;
+}
+
+.cell:hover { background-color: rgba(255,255,255,0.2); transform: scale(1.1); }
+.cell.x { color: #ff4d4d; animation: pop 0.3s ease; }
+.cell.o { color: #4dffb8; animation: pop 0.3s ease; }
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+#message { font-size: 1.2rem; margin-bottom: 10px; }
+
+.buttons { display: flex; justify-content: center; flex-wrap: wrap; }
+
+#confettiCanvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 500px) { .cell { font-size: 2rem; } }
+
